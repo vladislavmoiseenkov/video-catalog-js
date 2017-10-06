@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="www/css/libs.min.css">
+    <link rel="stylesheet" href="www/css/styles.min.css">
+</head>
+<body ng-app="videoCatalog">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="main">home</a></li>
+                    <li><a ng-click="$root.open()" ng-if="$root.albumId !== undefined">new video</a></li>
+                </ul>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <ui-view></ui-view>
+
+
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Добавление видео</h3>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="videoTitle">Video Title</label>
+                <input type="text" class="form-control" ng-model="vm.name" id="videoTitle" placeholder="Video Title">
+            </div>
+            <div class="form-group">
+                <label for="videoDescription">Video Description</label>
+                <input type="text" class="form-control" ng-model="vm.description" id="videoDescription" placeholder="Video Description">
+            </div>
+            <div class="form-group">
+                <label for="videoLink">Video Link</label>
+                <input type="url" class="form-control" ng-model="vm.link" id="videoLink" placeholder="Video Link">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+        </div>
+    </script>
+
+<script src="www/js/libs.min.js"></script>
+<script src="www/js/app.js"></script>
+</body>
+</html>
